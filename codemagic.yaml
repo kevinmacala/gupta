@@ -1,3 +1,6 @@
+workflows:
+  sample_workflow:
+    name: My Workflow
 scripts:
   - name: My Bash Script
     ignore_failure: true
